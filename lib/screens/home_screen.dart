@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:uts_2022130040/screens/cart_screen.dart';
+import 'package:uts_2022130040/screens/login_screen.dart';
+import 'package:uts_2022130040/screens/product_screen.dart';
 
-class Homescreen extends StatelessWidget {
+class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
+
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+
+class _HomescreenState extends State<Homescreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: colors,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.menu),
-        ),
         actions: [
           IconButton(
             onPressed: () {},
@@ -88,6 +100,74 @@ class Homescreen extends StatelessWidget {
           Icons.shopping_cart,
         ),
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+              ),
+              child: Text('Store Menu'),
+            ),
+            ListTile(
+              title: const Text('HomeScreen'),
+              selected: _selectedIndex == 0,
+              onTap: () {
+                _onItemTap(0);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Homescreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('LoginScreen'),
+              selected: _selectedIndex == 1,
+              onTap: () {
+                _onItemTap(1);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('ProductScreen'),
+              selected: _selectedIndex == 2,
+              onTap: () {
+                _onItemTap(2);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProductScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('CartScreen'),
+              selected: _selectedIndex == 2,
+              onTap: () {
+                _onItemTap(2);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CartScreen(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      // body: Center(
+      //   child: _widgetOptions.elementAt(_selectedIndex),
+      // ),
     );
   }
 }

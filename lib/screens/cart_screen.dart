@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Cartscreen extends StatelessWidget {
-  const Cartscreen({super.key});
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.arrow_back),
+      ),
+    );
   }
 }
