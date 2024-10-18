@@ -94,8 +94,15 @@ class _HomescreenState extends State<Homescreen> {
           ],
         ),
       ),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const CartScreen(),
+            ),
+          );
+        },
         child: Icon(
           Icons.shopping_cart,
         ),

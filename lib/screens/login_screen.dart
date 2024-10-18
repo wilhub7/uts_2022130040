@@ -27,15 +27,22 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              'Welcome to Nekoshop',
-              style: TextStyle(fontWeight: FontWeight.bold),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            color: Colors.amber,
+            child: Padding(
+              padding: EdgeInsets.only(right: 16),
+              child: Text(
+                'Welcome to Nekoshop',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 27),
+              ),
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           Expanded(
             flex: 3,
@@ -46,12 +53,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 5),
+                      child: Text(
+                        'email',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
                     Row(
                       children: [
                         Expanded(
                           child: TextFormField(
                               decoration: const InputDecoration(
-                                labelText: 'Email',
+                                labelText: 'your email',
                                 border: OutlineInputBorder(),
                               ),
                               validator: (value) {
@@ -64,22 +80,32 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                     const SizedBox(
-                      width: 16,
+                      height: 16,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 5),
+                      child: Text(
+                        'password',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
                     TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Password',
-                          border: const OutlineInputBorder(),
-                          suffix: IconButton(
-                            icon: Icon(_obscured
-                                ? Icons.visibility
-                                : Icons.visibility_off),
-                            onPressed: () {
-                              setState(() {
-                                _obscured = !_obscured;
-                              });
-                            },
-                          ),
+                          labelText: 'your password',
+                          border: OutlineInputBorder(),
+
+                          // suffix: IconButton(
+                          //   icon: Icon(_obscured
+                          //       ? Icons.visibility
+                          //       : Icons.visibility_off),
+                          //   onPressed: () {
+                          //     setState(() {
+                          //       _obscured = !_obscured;
+                          //     });
+                          //   },
+                          // ),
                         ),
                         obscureText: true,
                         validator: (value) {
@@ -91,17 +117,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 16,
                     ),
-                    TextButton(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('successfully log in!'),
+                              content: Text('successfully Login!'),
                             ),
                           );
                         }
                       },
-                      child: const Text('log in'),
+                      child: TextFormField(
+                        enabled: false,
+                        decoration: InputDecoration(
+                          labelText: 'Login',
+                          fillColor: Colors.blue,
+                          labelStyle: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     )
                   ],
                 ),

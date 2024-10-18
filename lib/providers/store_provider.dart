@@ -8,4 +8,10 @@ class StoreProvider extends ChangeNotifier {
     _barangs.add(store);
     notifyListeners();
   }
+
+  void editStore(Store store) {
+    final index = _barangs.indexWhere((element) => element.id == store.id);
+    _barangs[index] = store;
+    notifyListeners();
+  }
 }
