@@ -49,7 +49,7 @@ class _HomescreenState extends State<Homescreen> {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 30,
             ),
             Expanded(
               child: GridView.count(
@@ -94,18 +94,30 @@ class _HomescreenState extends State<Homescreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const CartScreen(),
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 75,
+            right: 10,
+            child: FloatingActionButton(
+              shape:
+                  CircleBorder(side: BorderSide(width: 3, color: Colors.black)),
+              backgroundColor: Colors.grey,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CartScreen(),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
             ),
-          );
-        },
-        child: Icon(
-          Icons.shopping_cart,
-        ),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(

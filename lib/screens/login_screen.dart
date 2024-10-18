@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_2022130040/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 10,
           ),
           Container(
-            color: Colors.amber,
             child: Padding(
               padding: EdgeInsets.only(right: 16),
               child: Text(
@@ -120,11 +120,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     GestureDetector(
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Homescreen(),
+                            ),
+                          );
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('successfully Login!'),
                             ),
                           );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('not successfully Login')));
                         }
                       },
                       child: TextFormField(
@@ -132,6 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: InputDecoration(
                           labelText: 'Login',
                           fillColor: Colors.blue,
+                          filled: true,
                           labelStyle: TextStyle(color: Colors.white),
                         ),
                       ),
