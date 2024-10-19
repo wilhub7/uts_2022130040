@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uts_2022130040/providers/store_provider.dart';
+import 'package:uts_2022130040/screens/cart_screen.dart';
 import 'package:uts_2022130040/screens/home_screen.dart';
 import 'package:uts_2022130040/screens/login_screen.dart';
 import 'package:uts_2022130040/screens/product_screen.dart';

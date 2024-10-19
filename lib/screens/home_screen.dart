@@ -12,7 +12,11 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
   int _selectedIndex = 0;
-
+// static const List<Widget> _widgetOptions = <Widget>[
+//     Text('Index 0: Home'),
+//     Text('Index 1: Business'),
+//     Text('Index 2: School'),
+//   ];
   void _onItemTap(int index) {
     setState(() {
       _selectedIndex = index;
@@ -26,7 +30,14 @@ class _HomescreenState extends State<Homescreen> {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CartScreen(),
+                ),
+              );
+            },
             icon: Icon(Icons.search),
           ),
         ],
@@ -52,40 +63,52 @@ class _HomescreenState extends State<Homescreen> {
               height: 30,
             ),
             Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
+              child: GridView(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                ),
                 children: List.generate(
                   6,
-                  (index) => Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            color: Colors.grey,
-                            child: Center(
-                              child: Icon(
-                                Icons.image,
-                                size: 50,
+                  (index) => GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProductScreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black),
+                      ),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              color: Colors.grey,
+                              child: Center(
+                                child: Icon(
+                                  Icons.image,
+                                  size: 50,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            padding: EdgeInsets.all(7),
-                            child: Text('Title'),
-                            alignment: Alignment.centerLeft,
-                          ),
-                        )
-                      ],
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              padding: EdgeInsets.all(7),
+                              child: Text('Title'),
+                              alignment: Alignment.centerLeft,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -184,9 +207,6 @@ class _HomescreenState extends State<Homescreen> {
           ],
         ),
       ),
-      // body: Center(
-      //   child: _widgetOptions.elementAt(_selectedIndex),
-      // ),
     );
   }
 }

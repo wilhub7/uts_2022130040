@@ -3,9 +3,17 @@ import 'package:uts_2022130040/models/store.dart';
 
 class StoreProvider extends ChangeNotifier {
   final List<Store> _barangs = [];
+  final List<Store> _carts = [];
+
   List<Store> get barangs => _barangs;
   void addStore(Store store) {
     _barangs.add(store);
+    notifyListeners();
+  }
+
+  List<Store> get carts => _carts;
+  void addCart(Store store) {
+    _carts.add(store);
     notifyListeners();
   }
 
