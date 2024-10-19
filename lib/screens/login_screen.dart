@@ -68,7 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextFormField(
                               decoration: const InputDecoration(
                                 labelText: 'your email',
-                                border: OutlineInputBorder(),
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide(width: 3)),
                               ),
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -94,7 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextFormField(
                         decoration: InputDecoration(
                           labelText: 'your password',
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(width: 3)),
 
                           // suffix: IconButton(
                           //   icon: Icon(_obscured
@@ -138,6 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         }
                       },
                       child: TextFormField(
+                        textAlign: TextAlign.center,
                         enabled: false,
                         decoration: InputDecoration(
                           labelText: 'Login',

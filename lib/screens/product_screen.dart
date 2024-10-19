@@ -67,7 +67,7 @@ class ProductScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                margin: const EdgeInsets.fromLTRB(16, 16, 30, 16),
+                margin: const EdgeInsets.fromLTRB(16, 16, 0, 16),
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
@@ -83,36 +83,46 @@ class ProductScreen extends StatelessWidget {
               ),
             ),
             Expanded(
+              flex: 2,
               child: Container(
-                margin: const EdgeInsets.fromLTRB(0, 16, 30, 16),
+                height: 50,
+                margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
                   ),
                 ),
-                child: Text(
-                  '1',
-                  style: TextStyle(
-                    fontSize: 20,
+                child: Center(
+                  child: Text(
+                    '1',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ),
             Expanded(
               child: Container(
-                margin: const EdgeInsets.fromLTRB(0, 16, 50, 16),
+                margin: const EdgeInsets.fromLTRB(0, 16, 16, 16),
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
                   ),
                 ),
-                child: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add,
+                      size: 10,
+                    )),
               ),
             ),
             Expanded(
+              flex: 3,
               child: Container(
-                margin: const EdgeInsets.fromLTRB(50, 16, 16, 16),
+                margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -128,6 +138,7 @@ class ProductScreen extends StatelessWidget {
                     );
                   },
                   child: TextFormField(
+                    textAlign: TextAlign.center,
                     enabled: false,
                     decoration: InputDecoration(
                       labelText: 'Add to cart',
