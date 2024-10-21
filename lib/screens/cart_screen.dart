@@ -9,6 +9,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final storeProvider = Provider.of<StoreProvider>(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -54,7 +55,9 @@ class CartScreen extends StatelessWidget {
                       final store = provider.barangs[index];
                       return ListTile(
                         title: Text(store.nama),
-                        subtitle: Text(store.harga),
+                        subtitle: Text(
+                          store.harga,
+                        ),
                         leading: CircleAvatar(
                           child: Text(store.image[0].toUpperCase()),
                         ),

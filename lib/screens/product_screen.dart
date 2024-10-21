@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:uts_2022130040/screens/cart_screen.dart';
+import 'package:uts_2022130040/providers/store_provider.dart';
+import 'package:provider/provider.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final storeProvider = Provider.of<StoreProvider>(context);
     return Scaffold(
       body: Column(
         children: [

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:uts_2022130040/screens/cart_screen.dart';
 import 'package:uts_2022130040/screens/login_screen.dart';
 import 'package:uts_2022130040/screens/product_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:uts_2022130040/providers/store_provider.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -12,11 +14,7 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
   int _selectedIndex = 0;
-// static const List<Widget> _widgetOptions = <Widget>[
-//     Text('Index 0: Home'),
-//     Text('Index 1: Business'),
-//     Text('Index 2: School'),
-//   ];
+
   void _onItemTap(int index) {
     setState(() {
       _selectedIndex = index;
@@ -25,6 +23,7 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    final storeProvider = Provider.of<StoreProvider>(context);
     return Scaffold(
       // backgroundColor: colors,
       appBar: AppBar(
@@ -103,7 +102,7 @@ class _HomescreenState extends State<Homescreen> {
                             flex: 1,
                             child: Container(
                               padding: EdgeInsets.all(7),
-                              child: Text('Title'),
+                              child: Text('storeProvider.barangs[index].nama'),
                               alignment: Alignment.centerLeft,
                             ),
                           )
