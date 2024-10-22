@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_2022130040/models/store.dart';
 import 'package:uts_2022130040/screens/cart_screen.dart';
 import 'package:uts_2022130040/providers/store_provider.dart';
 import 'package:provider/provider.dart';
@@ -8,12 +9,10 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final storeProvider = Provider.of<StoreProvider>(context);
     return Scaffold(
       body: Column(
         children: [
           Expanded(
-            flex: 1,
             child: Container(
               color: Colors.grey,
               child: Center(
@@ -25,10 +24,11 @@ class ProductScreen extends StatelessWidget {
             ),
           ),
           Container(
+            color: Colors.pink,
             padding: EdgeInsets.all(16),
             alignment: Alignment.topLeft,
             child: Text(
-              'Product A',
+              'Product',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -37,6 +37,7 @@ class ProductScreen extends StatelessWidget {
             ),
           ),
           Container(
+            color: Colors.pink,
             padding: EdgeInsets.all(16),
             alignment: Alignment.centerLeft,
             child: Text(
@@ -45,12 +46,14 @@ class ProductScreen extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          // const SizedBox(
+          //   height: 10,
+
+          // ),
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Container(
+              color: Colors.pink,
               padding: EdgeInsets.all(16),
               alignment: Alignment.topLeft,
               child: Text(
@@ -65,7 +68,7 @@ class ProductScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        color: Colors.amber,
+        color: Colors.green,
         child: Row(
           children: [
             Expanded(
@@ -155,13 +158,6 @@ class ProductScreen extends StatelessWidget {
             )
           ],
         ),
-        // child: BottomNavigationBar(
-        //   items: const <BottomNavigationBarItem>[
-        //     BottomNavigationBarItem(icon: Icon(Icons.remove), label: ''),
-        //     BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
-        //     BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
-        //   ],
-        // ),
       ),
     );
   }

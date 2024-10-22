@@ -11,7 +11,9 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final storeProvider = Provider.of<StoreProvider>(context);
     return Scaffold(
+      backgroundColor: Colors.green,
       appBar: AppBar(
+        backgroundColor: Colors.yellow,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -40,6 +42,9 @@ class CartScreen extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             Expanded(
               child: Consumer<StoreProvider>(
                 builder: (context, provider, child) {
@@ -56,10 +61,26 @@ class CartScreen extends StatelessWidget {
                       return ListTile(
                         title: Text(store.nama),
                         subtitle: Text(
-                          store.harga,
+                          'Rp.9.999.999 X 9',
+                          style: TextStyle(
+                              fontSize: 13, fontWeight: FontWeight.normal),
                         ),
-                        leading: CircleAvatar(
-                          child: Text(store.image[0].toUpperCase()),
+                        leading: Container(
+                          height: 40,
+                          width: 50,
+                          color: Colors.grey,
+                          child: Center(
+                            child: Icon(
+                              Icons.image,
+                              size: 15,
+                            ),
+                          ),
+                        ),
+                        trailing: Text(
+                          store.harga,
+                          style: TextStyle(
+                              fontSize: 13, fontWeight: FontWeight.normal),
+                          textAlign: TextAlign.left,
                         ),
                       );
                     },
@@ -67,6 +88,52 @@ class CartScreen extends StatelessWidget {
                 },
               ),
             ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
+                  margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  child: Text(
+                    'Rp 9.999.999',
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+                    textAlign: TextAlign.left,
+                  )),
+            ),
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CartScreen(),
+                      ),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('successfully Checkout!'),
+                      ),
+                    );
+                  },
+                  child: TextFormField(
+                    textAlign: TextAlign.center,
+                    enabled: false,
+                    decoration: InputDecoration(
+                      labelText: 'Checkout',
+                      fillColor: Colors.blue,
+                      filled: true,
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

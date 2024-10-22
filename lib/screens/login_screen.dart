@@ -14,6 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.brown,
       body: Column(
         children: [
           Expanded(
@@ -97,17 +98,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           labelText: 'your password',
                           border: OutlineInputBorder(
                               borderSide: BorderSide(width: 3)),
-
-                          // suffix: IconButton(
-                          //   icon: Icon(_obscured
-                          //       ? Icons.visibility
-                          //       : Icons.visibility_off),
-                          //   onPressed: () {
-                          //     setState(() {
-                          //       _obscured = !_obscured;
-                          //     });
-                          //   },
-                          // ),
                         ),
                         obscureText: true,
                         validator: (value) {
@@ -158,17 +148,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
     );
-
-    // Scaffold(
-    //   appBar: AppBar(
-    //     title: Text(''),
-    //     actions: [
-    //       Icon(
-    //         Icons.image,
-    //         size: 50,
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }

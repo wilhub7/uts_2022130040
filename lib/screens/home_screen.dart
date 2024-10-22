@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_2022130040/models/store.dart';
 import 'package:uts_2022130040/screens/cart_screen.dart';
 import 'package:uts_2022130040/screens/login_screen.dart';
 import 'package:uts_2022130040/screens/product_screen.dart';
@@ -23,10 +24,12 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
-    final storeProvider = Provider.of<StoreProvider>(context);
+    final storeProviderController = Provider.of<StoreProvider>(context);
+
     return Scaffold(
-      // backgroundColor: colors,
+      backgroundColor: Colors.yellow,
       appBar: AppBar(
+        backgroundColor: Colors.green,
         actions: [
           IconButton(
             onPressed: () {
@@ -37,7 +40,9 @@ class _HomescreenState extends State<Homescreen> {
                 ),
               );
             },
-            icon: Icon(Icons.search),
+            icon: Icon(
+              Icons.search,
+            ),
           ),
         ],
         title: Text(''),
@@ -62,56 +67,56 @@ class _HomescreenState extends State<Homescreen> {
               height: 30,
             ),
             Expanded(
-              child: GridView(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                ),
-                children: List.generate(
-                  6,
-                  (index) => GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ProductScreen(),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                              color: Colors.grey,
-                              child: Center(
-                                child: Icon(
-                                  Icons.image,
-                                  size: 50,
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                  ),
+                  itemCount: storeProviderController.barangs.length,
+                  itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductScreen(),
+                              settings: const RouteSettings(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.black),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  color: Colors.grey,
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.image,
+                                      size: 50,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  color: Colors.red,
+                                  padding: EdgeInsets.all(7),
+                                  child: Text(storeProviderController
+                                      .barangs[index].nama),
+                                  alignment: Alignment.centerLeft,
+                                ),
+                              )
+                            ],
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              padding: EdgeInsets.all(7),
-                              child: Text('storeProvider.barangs[index].nama'),
-                              alignment: Alignment.centerLeft,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+                        ),
+                      )),
             ),
           ],
         ),
@@ -124,7 +129,7 @@ class _HomescreenState extends State<Homescreen> {
             child: FloatingActionButton(
               shape:
                   CircleBorder(side: BorderSide(width: 3, color: Colors.black)),
-              backgroundColor: Colors.grey,
+              backgroundColor: Colors.green,
               onPressed: () {
                 Navigator.push(
                   context,
@@ -185,16 +190,16 @@ class _HomescreenState extends State<Homescreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ProductScreen(),
+                    builder: (context) => ProductScreen(),
                   ),
                 );
               },
             ),
             ListTile(
               title: const Text('CartScreen'),
-              selected: _selectedIndex == 2,
+              selected: _selectedIndex == 3,
               onTap: () {
-                _onItemTap(2);
+                _onItemTap(3);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
