@@ -9,7 +9,6 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final storeProvider = Provider.of<StoreProvider>(context);
     return Scaffold(
       backgroundColor: Colors.green,
       appBar: AppBar(
