@@ -59,21 +59,26 @@ class CartScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final store = provider.barangs[index];
                       return ListTile(
-                        title: Text(store.nama),
+                        title: Text(
+                          store.nama,
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
                         subtitle: Text(
                           'Rp.9.999.999 X 9',
                           style: TextStyle(
-                              fontSize: 13, fontWeight: FontWeight.normal),
+                              fontSize: 12, fontWeight: FontWeight.normal),
                         ),
                         leading: Container(
                           height: 40,
                           width: 50,
                           color: Colors.grey,
                           child: Center(
-                            child: Icon(
-                              Icons.image,
-                              size: 15,
-                            ),
+                            child: Image.asset(store.image),
+                            // child: Icon(
+                            //   Icons.image,
+                            //   size: 15,
+                            // ),
                           ),
                         ),
                         trailing: Text(
