@@ -94,13 +94,18 @@ class _HomescreenState extends State<Homescreen> {
                               Expanded(
                                 flex: 3,
                                 child: Container(
-                                  color: Colors.grey,
                                   child: Center(
-                                    child: Icon(
-                                      Icons.image,
-                                      size: 50,
-                                    ),
+                                    child: Image.asset(storeProviderController
+                                        .barangs[index].image),
                                   ),
+
+                                  // color: Colors.grey,
+                                  // child: Center(
+                                  //   child: Icon(
+                                  //     Icons.image,
+                                  //     size: 50,
+                                  //   ),
+                                  // ),
                                 ),
                               ),
                               Expanded(

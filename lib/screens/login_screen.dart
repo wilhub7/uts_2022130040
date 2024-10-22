@@ -22,10 +22,11 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
               color: Colors.grey,
               child: Center(
-                child: Icon(
-                  Icons.image,
-                  size: 50,
-                ),
+                child: Image.asset('assets/toko.jpeg'),
+                // child: Icon(
+                //   Icons.image,
+                //   size: 50,
+                // ),
               ),
             ),
           ),
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Padding(
               padding: EdgeInsets.only(right: 16),
               child: Text(
-                'Welcome to Nekoshop',
+                'Welcome to Wilshop',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 27),
               ),
